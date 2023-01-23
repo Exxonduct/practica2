@@ -3,6 +3,38 @@ package daw.programacion.obra;
 import java.util.Scanner;
 
 public class Main {
+
+    public static void printPinturas(Pintura[] pinturas){
+        for(int i = 0;i<pinturas.length;i++){
+            System.out.print("ID: "+pinturas[i].getId());
+            System.out.print(" Nombre: "+pinturas[i].getNombre());
+            System.out.print(" Autor: "+pinturas[i].getAutor());
+            System.out.print(" Técnica: "+pinturas[i].getTecnica());
+            System.out.print(" Precio: "+pinturas[i].getPrecio()+"€");
+            System.out.print(" Altura: "+pinturas[i].getAltura()+"m");
+            System.out.print(" Peso: "+pinturas[i].getPeso()+"t");
+            System.out.print(" Piezas: "+pinturas[i].getNumeroPiezas());
+            System.out.print(" Descripción: "+pinturas[i].getDescripcion());
+            System.out.println("");
+
+        }
+    }
+
+    public static void printEsculturas(Escultura[] esculturas){
+        for(int i = 0;i<esculturas.length;i++){
+            System.out.print("ID: "+esculturas[i].getId());
+            System.out.print(" Nombre: "+esculturas[i].getNombre());
+            System.out.print(" Autor: "+esculturas[i].getAutor());
+            System.out.print(" Técnica: "+esculturas[i].getMaterial());
+            System.out.print(" Precio: "+esculturas[i].getPrecio()+"€");
+            System.out.print(" Altura: "+esculturas[i].getAltura()+"m");
+            System.out.print(" Peso: "+esculturas[i].getPeso()+"t");
+            System.out.print(" Piezas: "+esculturas[i].getNumeroPiezas());
+            System.out.print(" Descripción: "+esculturas[i].getDescripcion());
+            System.out.println("");
+
+        }
+    }
     public static void main( String[] args )
     {
 
@@ -33,27 +65,15 @@ public class Main {
 
             switch(x){
                 case 1:
-
+                    System.out.println("");
                     System.out.println("Pinturas:");
-                    for(int i = 0;i<pinturas.length;i++){
-                        System.out.print("ID: "+pinturas[i].getId());
-                        System.out.print(" Nombre: "+pinturas[i].getNombre());
-                        System.out.print(" Autor: "+pinturas[i].getAutor());
-                        System.out.print(" Técnica: "+pinturas[i].getTecnica());
-                        System.out.print(" Precio: "+pinturas[i].getPrecio()+"€");
-                        System.out.print(" Altura: "+pinturas[i].getAltura()+"m");
-                        System.out.print(" Peso: "+pinturas[i].getPeso()+"t");
-                        System.out.print(" Piezas: "+pinturas[i].getNumeroPiezas());
-                        System.out.print(" Descripción: "+pinturas[i].getDescripcion());
-                        System.out.println("");
-
-                    }
-
+                    printPinturas(pinturas);
+                    System.out.println("");
                     System.out.println("Esculturas: ");
-
+                    printEsculturas(esculturas);
                 continue;
                 case 2:
-
+                
                 continue;
                 case 3:
 
