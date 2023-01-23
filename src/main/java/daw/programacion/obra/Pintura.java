@@ -9,6 +9,10 @@ public class Pintura extends ObraDeArte {
         this.tecnica = tecnica;
     }
 
+    public String getTecnica() {
+        return tecnica;
+    }
+
     
 
 }
