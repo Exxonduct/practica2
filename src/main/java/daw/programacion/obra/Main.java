@@ -10,7 +10,7 @@ public class Main {
             System.out.print(" Nombre: "+pinturas[i].getNombre());
             System.out.print(" Autor: "+pinturas[i].getAutor());
             System.out.print(" Técnica: "+pinturas[i].getTecnica());
-            System.out.print(" Precio: "+pinturas[i].getPrecio()+"€");
+            System.out.print(" Precio: "+pinturas[i].getPrecio()+" euros");
             System.out.print(" Altura: "+pinturas[i].getAltura()+"m");
             System.out.print(" Peso: "+pinturas[i].getPeso()+"t");
             System.out.print(" Piezas: "+pinturas[i].getNumeroPiezas());
@@ -26,7 +26,7 @@ public class Main {
             System.out.print(" Nombre: "+esculturas[i].getNombre());
             System.out.print(" Autor: "+esculturas[i].getAutor());
             System.out.print(" Técnica: "+esculturas[i].getMaterial());
-            System.out.print(" Precio: "+esculturas[i].getPrecio()+"€");
+            System.out.print(" Precio: "+esculturas[i].getPrecio()+" euros");
             System.out.print(" Altura: "+esculturas[i].getAltura()+"m");
             System.out.print(" Peso: "+esculturas[i].getPeso()+"t");
             System.out.print(" Piezas: "+esculturas[i].getNumeroPiezas());
@@ -73,7 +73,7 @@ public class Main {
                     printEsculturas(esculturas);
                 continue;
                 case 2:
-                
+
                 continue;
                 case 3:
 
