@@ -5,10 +5,11 @@ import java.util.Scanner;
 public class Main {
     public static void main( String[] args )
     {
+        
         int x = 0;
         Scanner read = new Scanner(System.in);
         while(x != 7){
-            
+
             System.out.println("");
             System.out.println("1. Visualizar las obras de arte existentes en la galería. Permite conocer todas las obras que se exponen.");
             System.out.println("2. Dar de alta una nueva obra de arte.");
