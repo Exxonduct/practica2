@@ -3,7 +3,6 @@ package daw.programacion.obra;
 public class ObraDeArte {
     
     private int id;
-    private String tipo;
     private String nombre;
     private String autor;
     private double precio;
@@ -12,10 +11,9 @@ public class ObraDeArte {
     private int numeroPiezas;
     private String descripcion;
 
-    public ObraDeArte(int id, String tipo, String nombre, String autor, double precio, double altura, double peso,
+    public ObraDeArte(int id, String nombre, String autor, double precio, double altura, double peso,
             int numeroPiezas, String descripcion) {
         this.id = id;
-        this.tipo = tipo;
         this.nombre = nombre;
         this.autor = autor;
         this.precio = precio;
@@ -29,9 +27,6 @@ public class ObraDeArte {
         this.id = id;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -65,9 +60,6 @@ public class ObraDeArte {
         return id;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
 
     public String getNombre() {
         return nombre;

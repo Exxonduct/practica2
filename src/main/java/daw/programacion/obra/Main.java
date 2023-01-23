@@ -5,7 +5,14 @@ import java.util.Scanner;
 public class Main {
     public static void main( String[] args )
     {
+
+        Pintura Guernica = new Pintura(001, "Guernica", "P.Picasso", 1000, 5, 2, 5, "cuadro guerra civil", "Óleo");
+        Pintura LaVie = new Pintura(002, "La vie", "P.Picasso", 200, 1, 1, 1, "óleo", "Óleo");
+        Pintura ElSueño = new Pintura(003, "El Sueño", "P.Picasso", 300, 1.3, 1, 5, "óleo", "Óleo");
+        Pintura RetratoDeDoraMaar = new Pintura(004, "Retrato de Dora Maar", "P.Picasso", 400, 1, 0.8, 1, "óleo", "Óleo");
+        Escultura ElPielRoja = new Escultura(005, "El piel roja", "U.Checa", 350, 1, 0.8, 1, "escultura", "null");
         
+
         int x = 0;
         Scanner read = new Scanner(System.in);
         while(x != 7){
