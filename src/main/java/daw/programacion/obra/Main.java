@@ -154,7 +154,14 @@ public class Main {
                     int seleccion = read.nextInt();
                     for(int i = 0; i < esculturas.length;i++){
                         if(esculturas[i].getId() == seleccion){
-                            
+                            System.out.println("A continuación modificarás todos los datos, si no quieres modificarlo, déjalo en blanco.");
+
+                        }
+                    }
+                    
+                    for(int i = 0;i<pinturas.length;i++){
+                        if(pinturas[i].getId() == seleccion){
+                            System.out.println("A continuación modificarás todos los datos, si no quieres modificarlo, déjalo en blanco.");
                         }
                     }
 
