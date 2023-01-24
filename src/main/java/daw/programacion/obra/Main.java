@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void printPinturas(Pintura[] pinturas){
+        System.out.println("");
+        System.out.println("Pinturas:");
         for(int i = 0;i<pinturas.length;i++){
             System.out.print("ID: "+pinturas[i].getId());
             System.out.print(" Nombre: "+pinturas[i].getNombre());
@@ -21,6 +23,8 @@ public class Main {
     }
 
     public static void printEsculturas(Escultura[] esculturas){
+        System.out.println("");
+        System.out.println("Esculturas: ");
         for(int i = 0;i<esculturas.length;i++){
             System.out.print("ID: "+esculturas[i].getId());
             System.out.print(" Nombre: "+esculturas[i].getNombre());
@@ -36,17 +40,22 @@ public class Main {
         }
     }
 
+    public static void printObras(Escultura[] esculturas, Pintura[] pinturas){
+        printPinturas(pinturas);
+        printEsculturas(esculturas);
+    }
+
     public static void printOpciones(){
-        System.out.println("");
-        System.out.println("1. Visualizar las obras de arte existentes en la galería. Permite conocer todas las obras que se exponen.");
-        System.out.println("2. Dar de alta una nueva obra de arte.");
-        System.out.println("3. Modificar los datos de una de las obras de arte expuestas.");
-        System.out.println("4. Visualizar los datos de una de las obras de arte expuestas.");
-        System.out.println("5. Obtener el precio de venta de una de las obras de arte expuestas.");
-        System.out.println("6. Imprimir una etiqueta para clasificar una de las obras expuestas y dar información adicional a los visitantes de la galería.");
-        System.out.println("7. Salir");
-        System.out.println("");
-        System.out.print("Indique lo que quiere realizar: ");
+            System.out.println("");
+            System.out.println("1. Visualizar las obras de arte existentes en la galería. Permite conocer todas las obras que se exponen.");
+            System.out.println("2. Dar de alta una nueva obra de arte.");
+            System.out.println("3. Modificar los datos de una de las obras de arte expuestas.");
+            System.out.println("4. Visualizar los datos de una de las obras de arte expuestas.");
+            System.out.println("5. Obtener el precio de venta de una de las obras de arte expuestas.");
+            System.out.println("6. Imprimir una etiqueta para clasificar una de las obras expuestas y dar información adicional a los visitantes de la galería.");
+            System.out.println("7. Salir");
+            System.out.println("");
+            System.out.print("Indique lo que quiere realizar: ");
     }
 
 
@@ -71,12 +80,7 @@ public class Main {
 
             switch(x){
                 case 1:
-                    System.out.println("");
-                    System.out.println("Pinturas:");
-                    printPinturas(pinturas);
-                    System.out.println("");
-                    System.out.println("Esculturas: ");
-                    printEsculturas(esculturas);
+                    printObras(esculturas, pinturas);
                 continue;
                 case 2:
 
@@ -144,8 +148,18 @@ public class Main {
                 continue;
                 case 3:
 
+                    printObras(esculturas, pinturas);
+                    System.out.println(" ");
+                    System.out.print("Indique qué obra quiere modificar escribiendo el ID: ");
+                    int seleccion = read.nextInt();
+                    for(int i = 0; i < esculturas.length;i++){
+                        if(esculturas[i].getId() == seleccion){
+                            
+                        }
+                    }
+
                 continue;
-                case 4:
+                case 4: 
 
                 continue;
                 case 5:

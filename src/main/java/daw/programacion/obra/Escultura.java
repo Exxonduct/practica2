@@ -13,5 +13,11 @@ public class Escultura extends ObraDeArte {
         this.material = material;
     }
 
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    
+
 
 }

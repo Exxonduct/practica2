@@ -13,6 +13,10 @@ public class Pintura extends ObraDeArte {
         return tecnica;
     }
 
+    public void setTecnica(String tecnica) {
+        this.tecnica = tecnica;
+    }
+
     
 
 }
