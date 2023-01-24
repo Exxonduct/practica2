@@ -58,7 +58,6 @@ public class Main {
             System.out.print("Indique lo que quiere realizar: ");
     }
 
-
     public static void main( String[] args )
     {
 
@@ -152,16 +151,66 @@ public class Main {
                     System.out.println(" ");
                     System.out.print("Indique qué obra quiere modificar escribiendo el ID: ");
                     int seleccion = read.nextInt();
+                    read.nextLine();
                     for(int i = 0; i < esculturas.length;i++){
                         if(esculturas[i].getId() == seleccion){
-                            System.out.println("A continuación modificarás todos los datos, si no quieres modificarlo, déjalo en blanco.");
-
+                            System.out.print("Indica qué dato quieres cambiar: ");
+                            String datoACambiar = read.nextLine();
+                            switch(datoACambiar){
+                                case "id":
+                                    System.out.print("Introduce el nuevo id: ");
+                                    int nuevoId = read.nextInt();
+                                    esculturas[i].setId(nuevoId);
+                                    break;
+                                case "nombre":
+                                    System.out.print("Introduzca el nuevo nombre: ");
+                                    String nuevoNombre = read.nextLine();
+                                    esculturas[i].setNombre(nuevoNombre);
+                                    break;
+                                case "autor":
+                                    System.out.print("Introduzca el nuevo autor: ");
+                                    String nuevoAutor = read.nextLine();
+                                    esculturas[i].setAutor(nuevoAutor);
+                                    break;
+                                case "material":
+                                    System.out.print("Introduzca el nuevo material: ");
+                                    String nuevoMaterial = read.nextLine();
+                                    esculturas[i].setMaterial(nuevoMaterial);
+                                    break;
+                                case "precio":
+                                    System.out.print("Introduzca el nuevo precio: ");
+                                    double nuevoPrecio = read.nextDouble();
+                                    esculturas[i].setPrecio(nuevoPrecio);
+                                    break;
+                                case "altura":
+                                    System.out.print("Introduzca la nueva altura: ");
+                                    double nuevaAltura = read.nextDouble();
+                                    esculturas[i].setAltura(nuevaAltura);
+                                    break;
+                                case "peso":
+                                    System.out.print("Introduzca el nuevo peso: ");
+                                    double nuevoPeso = read.nextDouble();
+                                    esculturas[i].setPeso(nuevoPeso);
+                                    break;
+                                case "piezas":
+                                    System.out.print("Introduzca el nuevo número de piezas: ");
+                                    int nuevaPiezas = read.nextInt();
+                                    esculturas[i].setNumeroPiezas(nuevaPiezas);
+                                    break;
+                                case "descripcion":
+                                    System.out.print("Introduzca la nueva descripción: ");
+                                    String nuevaDescripcion = read.nextLine();
+                                    esculturas[i].setDescripcion(nuevaDescripcion);
+                                    break;
+                                
+                            }
                         }
                     }
                     
                     for(int i = 0;i<pinturas.length;i++){
                         if(pinturas[i].getId() == seleccion){
-                            System.out.println("A continuación modificarás todos los datos, si no quieres modificarlo, déjalo en blanco.");
+                            System.out.print("Indica qué dato quieres cambiar: ");
+                            String datoACambiar = read.nextLine();
                         }
                     }
 
