@@ -11,6 +11,7 @@ public class ObraDeArte {
     private int numeroPiezas;
     private String descripcion;
 
+
     public ObraDeArte(int id, String nombre, String autor, double precio, double altura, double peso,
             int numeroPiezas, String descripcion) {
         this.id = id;

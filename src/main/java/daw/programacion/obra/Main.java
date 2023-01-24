@@ -76,48 +76,64 @@ public class Main {
                 continue;
                 case 2:
 
-                System.out.print("Introduzca el ID de la nueva obra: ");
-                int id = read.nextInt();
-                System.out.print("Introduzca el tipo de obra que quiere crear(Pintura/Escultura): ");
-                String s = read.nextLine();
-                String tipo = read.nextLine();
-                System.out.print("Introduzca el Nombre de la obra: ");
-                String nombre = read.nextLine();
-                System.out.print("Introduzca el nombre del Autor: ");
-                String autor = read.nextLine();
-                System.out.print("Introduzca el precio: ");
-                double precio = read.nextDouble();
-                System.out.print("Introduzca la altura: ");
-                double altura = read.nextDouble();
-                System.out.print("Introduzca el peso: ");
-                double peso = read.nextDouble();
-                System.out.print("Introduzca el número de piezas: ");
-                int piezas = read.nextInt();
-                String g = read.nextLine();
-                System.out.print("Introduzca la descripción: ");
-                String desc = read.nextLine();
-                if(tipo == "Pintura"){
-                    System.out.print("Introduzca la Técnica de la Pintura: ");
-                    String tecnica = read.nextLine();
-                    Pintura creada1 = new Pintura(id, nombre, autor, precio, altura, peso, piezas, desc, tecnica);
-                    Pintura[] pinturasNueva = new Pintura[pinturas.length+1];
+                    System.out.print("Introduzca el ID de la nueva obra: ");
+                    int id = read.nextInt();
+                    System.out.print("Introduzca el tipo de obra que quiere crear(Pintura/Escultura): ");
+                    String s = read.nextLine();
+                    String tipo = read.nextLine();
+                    System.out.print("Introduzca el Nombre de la obra: ");
+                    String nombre = read.nextLine();
+                    System.out.print("Introduzca el nombre del Autor: ");
+                    String autor = read.nextLine();
+                    System.out.print("Introduzca el precio: ");
+                    double precio = read.nextDouble();
+                    System.out.print("Introduzca la altura: ");
+                    double altura = read.nextDouble();
+                    System.out.print("Introduzca el peso: ");
+                    double peso = read.nextDouble();
+                    System.out.print("Introduzca el número de piezas: ");
+                    int piezas = read.nextInt();
+                    String g = read.nextLine();
+                    System.out.print("Introduzca la descripción: ");
+                    String desc = read.nextLine();
+                    if(tipo.equals("Pintura")){
+                        System.out.print("Introduzca la Técnica de la Pintura: ");
+                        String tecnica = read.nextLine();
+                        Pintura creada1 = new Pintura(id, nombre, autor, precio, altura, peso, piezas, desc, tecnica);
+                        Pintura[] pinturasNueva = new Pintura[pinturas.length+1];
 
-                    for(int i=0;i<pinturas.length;i++){
-                        pinturasNueva[i] = pinturas[i];
+                        for(int i=0;i<pinturas.length;i++){
+                            pinturasNueva[i] = pinturas[i];
+                        }
+
+                        pinturas = new Pintura[pinturasNueva.length];
+
+                        for(int i=0;i<pinturas.length;i++){
+                            pinturas[i] = pinturasNueva[i];
+                        }
+
+                        pinturas[pinturas.length-1] = creada1;
+
                     }
+                    else if(tipo.equals("Escultura")){
+                        System.out.print("Introduzca el Material de la Escultura: ");
+                        String material = read.nextLine();
+                        Escultura creada1 = new Escultura(id, nombre, autor, precio, altura, peso, piezas, desc, material);
+                        Escultura[] esculturasNueva = new Escultura[esculturas.length+1];
 
-                    pinturas = new Pintura[pinturasNueva.length];
+                        for(int i=0;i<esculturas.length;i++){
+                            esculturasNueva[i] = esculturas[i];
+                        }
 
-                    for(int i=0;i<pinturas.length;i++){
-                        pinturas[i] = pinturasNueva[i];
+                        esculturas = new Escultura[esculturasNueva.length];
+
+                        for(int i=0;i<esculturas.length;i++){
+                            esculturas[i] = esculturasNueva[i];
+                        }
+
+                        esculturas[esculturas.length-1] = creada1;
+
                     }
-
-                }
-                else if(tipo == "Escultura"){
-                    System.out.print("Introduzca el Material de la Escultura: ");
-                    String material = read.nextLine();
-                    Escultura escultura1 = new Escultura(id, nombre, autor, precio, altura, peso, piezas, desc, material);
-                }
 
                 
 
