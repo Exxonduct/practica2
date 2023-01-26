@@ -28,7 +28,7 @@ public class Main {
                     Acciones.crearObra();
                 continue;
                 case MODIFICARDATOS:
-                    
+                    Acciones.modificarObra();
                 continue;
                 case VISUALIZARDATOS:
 
