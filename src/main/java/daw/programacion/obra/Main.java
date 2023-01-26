@@ -12,23 +12,31 @@ public class Main {
             x = read.nextInt();
             read.nextLine();
 
+            final int VEROBRAS = 1;
+            final int CREAROBRA = 2;
+            final int MODIFICARDATOS = 3;
+            final int VISUALIZARDATOS = 4;
+            final int OBTENERPRECIOVENTA = 5;
+            final int IMPRIMIRETIQUETA = 6;
+            final int SALIR = 7;
+
             switch (x) {
-                case 1:
+                case VEROBRAS:
                     Acciones.printObras();
                 continue;
-                case 2:
+                case CREAROBRA:
                     Acciones.crearObra();
                 continue;
-                case 4:
+                case VISUALIZARDATOS:
 
                     continue;
-                case 5:
+                case OBTENERPRECIOVENTA:
 
                     continue;
-                case 6:
+                case IMPRIMIRETIQUETA:
 
                     continue;
-                case 7:
+                case SALIR:
                     System.out.println("Fin del programa.");
                     break;
                 default:
@@ -36,5 +44,6 @@ public class Main {
                     continue;
             }
         }
+        read.close();
     }
 }

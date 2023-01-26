@@ -1,7 +1,5 @@
 package daw.programacion.obra;
 
-import java.util.Scanner;
-
 public class ObraDeArte {
 
     private int id;
@@ -56,12 +54,6 @@ public class ObraDeArte {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public static void crearObra() {
-        Scanner read = new Scanner(System.in);
-        System.out.println("si");
-        int si = read.nextInt();
     }
 
     public int getId() {
