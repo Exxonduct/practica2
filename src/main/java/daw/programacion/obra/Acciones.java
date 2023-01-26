@@ -46,8 +46,22 @@ public class Acciones {
     }
 
     public static void crearObra() {
-        System.out.print("Introduzca el ID de la nueva obra: ");
-        int id = read.nextInt();
+        int id;
+        while (true) {
+            System.out.print("Introduzca el ID de la nueva obra: ");
+            id = read.nextInt();
+            boolean repetido = false;
+            for (int i = 0; i < Almacen.getObras().length; i++) {
+                if (Almacen.getObras()[i].getId() == id) {
+                    repetido = true;
+                }
+            }
+            if(repetido){
+                System.out.println("Ya existe una obra con ese ID, por favor, introduzca uno nuevo.");
+                continue;
+            }
+            break;
+        }
         System.out.print("Introduzca el tipo de obra que quiere crear(Pintura/Escultura): ");
         read.nextLine();
         String tipo = read.nextLine();
@@ -70,7 +84,7 @@ public class Acciones {
             System.out.print("Introduzca la Técnica de la Pintura: ");
             String tecnica = read.nextLine();
             Pintura creada1 = new Pintura(id, nombre, autor, precio, altura, peso, piezas, desc, tecnica);
-            ObraDeArte[] nuevaTemp = new ObraDeArte[Almacen.getObras().length+1];
+            ObraDeArte[] nuevaTemp = new ObraDeArte[Almacen.getObras().length + 1];
 
             for (int i = 0; i < Almacen.getObras().length; i++) {
                 nuevaTemp[i] = Almacen.getObras()[i];
@@ -78,14 +92,12 @@ public class Acciones {
 
             Almacen.setObras(nuevaTemp);
             Almacen.añadirobra(creada1);
-
-
 
         } else if (tipo.equals("Escultura")) {
             System.out.print("Introduzca el Material de la Escultura: ");
             String material = read.nextLine();
             Escultura creada1 = new Escultura(id, nombre, autor, precio, altura, peso, piezas, desc, material);
-            ObraDeArte[] nuevaTemp = new ObraDeArte[Almacen.getObras().length+1];
+            ObraDeArte[] nuevaTemp = new ObraDeArte[Almacen.getObras().length + 1];
 
             for (int i = 0; i < Almacen.getObras().length; i++) {
                 nuevaTemp[i] = Almacen.getObras()[i];
@@ -94,8 +106,11 @@ public class Acciones {
             Almacen.setObras(nuevaTemp);
             Almacen.añadirobra(creada1);
 
-
         }
+    }
+
+    public static void modificarObra() {
+
     }
 
 }

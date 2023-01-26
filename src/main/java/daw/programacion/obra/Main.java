@@ -27,6 +27,9 @@ public class Main {
                 case CREAROBRA:
                     Acciones.crearObra();
                 continue;
+                case MODIFICARDATOS:
+                    
+                continue;
                 case VISUALIZARDATOS:
 
                     continue;
