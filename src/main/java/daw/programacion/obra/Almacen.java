@@ -24,6 +24,10 @@ public class Almacen {
     public static void setObrasVacio(int length){
         Almacen.obras = new ObraDeArte[length];
     }
+
+    public static void añadirobra(ObraDeArte obra){
+        Almacen.obras[obras.length - 1] = obra;
+    }
     
     
 

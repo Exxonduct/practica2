@@ -70,28 +70,30 @@ public class Acciones {
             System.out.print("Introduzca la Técnica de la Pintura: ");
             String tecnica = read.nextLine();
             Pintura creada1 = new Pintura(id, nombre, autor, precio, altura, peso, piezas, desc, tecnica);
-            ObraDeArte[] pinturasNueva = new Pintura[Almacen.getObras().length + 1];
+            ObraDeArte[] pinturasNueva = Almacen.getObras();
+            ObraDeArte[] nuevaTemp = new ObraDeArte[pinturasNueva.length];
 
             for (int i = 0; i < Almacen.getObras().length; i++) {
-                pinturasNueva[i] = Almacen.getObras()[i];
+                nuevaTemp[i] = pinturasNueva[i];
             }
-            Almacen.setObrasVacio(pinturasNueva.length);
 
-            Almacen.setObras(pinturasNueva);
+            Almacen.setObras(nuevaTemp);
+            Almacen.añadirobra(creada1);
 
 
         } else if (tipo.equals("Escultura")) {
             System.out.print("Introduzca el Material de la Escultura: ");
             String material = read.nextLine();
             Escultura creada1 = new Escultura(id, nombre, autor, precio, altura, peso, piezas, desc, material);
-            ObraDeArte[] pinturasNueva = new Pintura[Almacen.getObras().length + 1];
+            ObraDeArte[] pinturasNueva = Almacen.getObras();
+            ObraDeArte[] nuevaTemp = new ObraDeArte[pinturasNueva.length];
 
             for (int i = 0; i < Almacen.getObras().length; i++) {
-                pinturasNueva[i] = Almacen.getObras()[i];
+                nuevaTemp[i] = pinturasNueva[i];
             }
-            Almacen.setObrasVacio(pinturasNueva.length);
 
-            Almacen.setObras(pinturasNueva);
+            Almacen.setObras(nuevaTemp);
+            Almacen.añadirobra(creada1);
 
 
         }
