@@ -70,36 +70,29 @@ public class Acciones {
             System.out.print("Introduzca la Técnica de la Pintura: ");
             String tecnica = read.nextLine();
             Pintura creada1 = new Pintura(id, nombre, autor, precio, altura, peso, piezas, desc, tecnica);
-            Pintura[] pinturasNueva = new Pintura[pinturas.length + 1];
+            ObraDeArte[] pinturasNueva = new Pintura[Almacen.getObras().length + 1];
 
-            for (int i = 0; i < pinturas.length; i++) {
-                pinturasNueva[i] = pinturas[i];
+            for (int i = 0; i < Almacen.getObras().length; i++) {
+                pinturasNueva[i] = Almacen.getObras()[i];
             }
-            pinturas = new Pintura[pinturasNueva.length];
+            Almacen.setObrasVacio(pinturasNueva.length);
 
-            for (int i = 0; i < pinturas.length; i++) {
-                pinturas[i] = pinturasNueva[i];
-            }
+            Almacen.setObras(pinturasNueva);
 
-            pinturas[pinturas.length - 1] = creada1;
 
         } else if (tipo.equals("Escultura")) {
             System.out.print("Introduzca el Material de la Escultura: ");
             String material = read.nextLine();
             Escultura creada1 = new Escultura(id, nombre, autor, precio, altura, peso, piezas, desc, material);
-            Escultura[] esculturasNueva = new Escultura[esculturas.length + 1];
+            ObraDeArte[] pinturasNueva = new Pintura[Almacen.getObras().length + 1];
 
-            for (int i = 0; i < esculturas.length; i++) {
-                esculturasNueva[i] = esculturas[i];
+            for (int i = 0; i < Almacen.getObras().length; i++) {
+                pinturasNueva[i] = Almacen.getObras()[i];
             }
+            Almacen.setObrasVacio(pinturasNueva.length);
 
-            esculturas = new Escultura[esculturasNueva.length];
+            Almacen.setObras(pinturasNueva);
 
-            for (int i = 0; i < esculturas.length; i++) {
-                esculturas[i] = esculturasNueva[i];
-            }
-
-            esculturas[esculturas.length - 1] = creada1;
 
         }
     }

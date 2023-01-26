@@ -10,13 +10,14 @@ public class Main {
         while (x != 7) {
             Acciones.printOpciones();
             x = read.nextInt();
-            
+            read.nextLine();
+
             switch (x) {
                 case 1:
                     Acciones.printObras();
                 continue;
                 case 2:
-
+                    Acciones.crearObra();
                 continue;
                 case 4:
 

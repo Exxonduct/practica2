@@ -20,6 +20,10 @@ public class Almacen {
     public static void setObras(ObraDeArte[] obras) {
         Almacen.obras = obras;
     }
+
+    public static void setObrasVacio(int length){
+        Almacen.obras = new ObraDeArte[length];
+    }
     
     
 
