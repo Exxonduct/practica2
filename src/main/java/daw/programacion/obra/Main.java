@@ -31,7 +31,7 @@ public class Main {
                     Acciones.modificarObra();
                 continue;
                 case VISUALIZARDATOS:
-
+                    Acciones.visualizarDatos();
                     continue;
                 case OBTENERPRECIOVENTA:
 
