@@ -1,5 +1,6 @@
 package daw.programacion.obra;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -9,8 +10,15 @@ public class Main {
         Scanner read = new Scanner(System.in);
         while (x != 7) {
             Acciones.printOpciones();
-            x = read.nextInt();
-            read.nextLine();
+            try{
+                x = read.nextInt();
+                read.nextLine();
+            } catch(InputMismatchException ime){
+                System.out.println("error");
+                read.next();
+                continue;
+            }
+
 
             final int VEROBRAS = 1;
             final int CREAROBRA = 2;
@@ -34,7 +42,7 @@ public class Main {
                     Acciones.visualizarDatos();
                     continue;
                 case OBTENERPRECIOVENTA:
-
+                
                     continue;
                 case IMPRIMIRETIQUETA:
 
