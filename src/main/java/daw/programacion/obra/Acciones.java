@@ -19,7 +19,7 @@ public class Acciones {
         System.out.println("");
         System.out.print("Indique lo que quiere realizar: ");
 
-    }
+    } // metodo para printear las opciones disponibles
 
     public static void printUnaObra(ObraDeArte obras) {
         System.out.println("");
@@ -32,15 +32,16 @@ public class Acciones {
         if (obras instanceof Pintura) {
             Pintura pinturaTemp = (Pintura) obras;
             System.out.println("Técnica: " + pinturaTemp.getTecnica());
-        } else if (obras instanceof Escultura) {
+        } // if la obra es una pintura 
+        else if (obras instanceof Escultura) {
             Escultura esculturaTemp = (Escultura) obras;
             System.out.println("Material: " + esculturaTemp.getMaterial());
-        }
+        } // if la obra es una escultura
         System.out.println("Piezas: " + obras.getNumeroPiezas());
         System.out.println("Descripción: " + obras.getDescripcion());
         System.out.println("");
 
-    }
+    } // metodo para printear una obra en concreto
 
     public static void printObras() {
         System.out.println("");
@@ -49,8 +50,8 @@ public class Acciones {
 
             printUnaObra(Almacen.getObras()[i]);
 
-        }
-    }
+        } // for que recorre todas las obras
+    } // metodo con un for que printea todas las obras de arte
 
     public static void crearObra() {
         int id;
@@ -61,14 +62,14 @@ public class Acciones {
             for (int i = 0; i < Almacen.getObras().length; i++) {
                 if (Almacen.getObras()[i].getId() == id) {
                     repetido = true;
-                }
+                } // if hay un id que ya existe repetido = true
             }
             if (repetido) {
                 System.out.println("Ya existe una obra con ese ID, por favor, introduzca uno nuevo.");
                 continue;
-            }
+            } // si está repetido te vuelve a pedir el id
             break;
-        }
+        } // while para introducir un ID único y nuevo
         System.out.print("Introduzca el tipo de obra que quiere crear(Pintura/Escultura): ");
         read.nextLine();
         String tipo = read.nextLine();
@@ -95,12 +96,13 @@ public class Acciones {
 
             for (int i = 0; i < Almacen.getObras().length; i++) {
                 nuevaTemp[i] = Almacen.getObras()[i];
-            }
+            } // se guardan las obras en un array temporal con un espacio más
 
-            Almacen.setObras(nuevaTemp);
-            Almacen.añadirobra(creada1);
+            Almacen.setObras(nuevaTemp); // se meten las obras que ya estaban 
+            Almacen.añadirobra(creada1); // se mete la obra nueva
 
-        } else if (tipo.equals("Escultura")) {
+        } // if quiere introducir una pintura 
+        else if (tipo.equals("Escultura")) {
             System.out.print("Introduzca el Material de la Escultura: ");
             String material = read.nextLine();
             Escultura creada1 = new Escultura(id, nombre, autor, precio, altura, peso, piezas, desc, material);
@@ -108,12 +110,12 @@ public class Acciones {
 
             for (int i = 0; i < Almacen.getObras().length; i++) {
                 nuevaTemp[i] = Almacen.getObras()[i];
-            }
+            } // se guardan las obras en un array temporal con un espacio más
 
-            Almacen.setObras(nuevaTemp);
-            Almacen.añadirobra(creada1);
+            Almacen.setObras(nuevaTemp); // se meten las obras que ya estaban 
+            Almacen.añadirobra(creada1); // se mete la obra nueva
 
-        }
+        } // if quiere introducir una escultura
     }
 
     public static void modificarObra() {
@@ -163,10 +165,11 @@ public class Acciones {
                             Escultura esculturaTemp = (Escultura) Almacen.getObras()[i];
                             esculturaTemp.setMaterial(nuevoMaterial);
                             Almacen.getObras()[i] = esculturaTemp;
-                        } else {
+                        } // if es una escultura se puede cambiar el material
+                        else {
                             System.out.println("Esta obra no es una escultura, seleccione una opción correcta.");
                             continue;
-                        }
+                        } // if no es una escultura no se puede cambiar el material
                         break;
                     case "tecnica":
                         if (Almacen.getObras()[i] instanceof Pintura) {
@@ -175,10 +178,11 @@ public class Acciones {
                             Pintura pinturaTemp = (Pintura) Almacen.getObras()[i];
                             pinturaTemp.setTecnica(nuevaTecnica);
                             Almacen.getObras()[i] = pinturaTemp;
-                        } else {
+                        } // if es una pintura se puede cambiar la técnica 
+                        else {
                             System.out.println("Esta obra no es una pintura, seleccione una opción correcta.");
                             continue;
-                        }
+                        } // if no es una pintura no se puede cambiar la técnica
                         break;
                     case "numero de piezas":
                         System.out.print("Introduzca el nuevo numero de piezas: ");
@@ -190,9 +194,9 @@ public class Acciones {
                         String nuevaDescripcion = read.nextLine();
                         Almacen.getObras()[i].setDescripcion(nuevaDescripcion);
                         break;
-                }
-            }
-        }
+                } // switch para lo que quieres cambiar
+            } // if el id introducido coincide con la obra se modifica esa obra
+        } // for que recorre todas las obras
     }
 
     public static void visualizarDatos() {
@@ -201,15 +205,15 @@ public class Acciones {
             System.out.print("Introduzca el ID de la obra que quiere visualizar:");
             int idVisualizar = read.nextInt();
             for (int i = 0; i < Almacen.getObras().length; i++) {
-                if(Almacen.getObras()[i].getId() == idVisualizar){
+                if (Almacen.getObras()[i].getId() == idVisualizar) {
                     printUnaObra(Almacen.getObras()[i]);
                     idNoExiste = false;
-                }
-            }
-            if(idNoExiste){
+                } // if el id existe se printea la obra y se finaliza el bucle
+            } // for que recorre todas las obras
+            if (idNoExiste) {
                 System.out.println("El ID que ha introducido no está registrado, introduzca otro.");
-            }
-        }
+            } // if no existe el id se repite el bucle
+        } // while para que te printee solo una obra con un ID existente
     }
 
 }

@@ -8,25 +8,26 @@ public class Main {
     public static void main(String[] args) {
         int x = 0;
         Scanner read = new Scanner(System.in);
-        while (x != 7) {
+
+        final int VEROBRAS = 1;
+        final int CREAROBRA = 2;
+        final int MODIFICARDATOS = 3;
+        final int VISUALIZARDATOS = 4;
+        final int OBTENERPRECIOVENTA = 5;
+        final int IMPRIMIRETIQUETA = 6;
+        final int SALIR = 7;
+
+        while (x != SALIR) {
             Acciones.printOpciones();
             try{
                 x = read.nextInt();
                 read.nextLine();
-            } catch(InputMismatchException ime){
+            }  // lee la elección
+            catch(InputMismatchException ime){
                 System.out.println("error");
                 read.next();
                 continue;
-            }
-
-
-            final int VEROBRAS = 1;
-            final int CREAROBRA = 2;
-            final int MODIFICARDATOS = 3;
-            final int VISUALIZARDATOS = 4;
-            final int OBTENERPRECIOVENTA = 5;
-            final int IMPRIMIRETIQUETA = 6;
-            final int SALIR = 7;
+            } // da error si x no es un número
 
             switch (x) {
                 case VEROBRAS:
@@ -54,7 +55,7 @@ public class Main {
                     System.out.println("Opción incorrecta.");
                     continue;
             }
-        }
+        } // while la elección no es salir(7)
         read.close();
     }
 }

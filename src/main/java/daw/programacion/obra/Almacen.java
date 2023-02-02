@@ -21,13 +21,9 @@ public class Almacen {
         Almacen.obras = obras;
     }
 
-    public static void setObrasVacio(int length){
-        Almacen.obras = new ObraDeArte[length];
-    }
-
     public static void añadirobra(ObraDeArte obra){
         Almacen.obras[obras.length - 1] = obra;
-    }
+    } // se añade una obra a la última posición libre del array
     
     
 
