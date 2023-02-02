@@ -216,4 +216,23 @@ public class Acciones {
         } // while para que te printee solo una obra con un ID existente
     }
 
+    public static void obtenerPrecioVenta(){
+        boolean idNoExiste = true;
+        while (idNoExiste) {
+            System.out.print("Introduzca el ID de la obra que quiere visualizar:");
+            int idObtenerPrecio = read.nextInt();
+            for (int i = 0; i < Almacen.getObras().length; i++) {
+                if (Almacen.getObras()[i].getId() == idObtenerPrecio) {
+                    
+                    idNoExiste = false;
+                } // if el id existe se printea la obra y se finaliza el bucle
+            } // for que recorre todas las obras
+            if (idNoExiste) {
+                System.out.println("El ID que ha introducido no está registrado, introduzca otro.");
+            } // if no existe el id se repite el bucle
+        } // while para que te printee solo una obra con un ID existente
+
+
+    }
+
 }
