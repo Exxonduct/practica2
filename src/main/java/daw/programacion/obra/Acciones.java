@@ -32,7 +32,7 @@ public class Acciones {
         if (obras instanceof Pintura) {
             Pintura pinturaTemp = (Pintura) obras;
             System.out.println("Técnica: " + pinturaTemp.getTecnica());
-        } // if la obra es una pintura 
+        } // if la obra es una pintura
         else if (obras instanceof Escultura) {
             Escultura esculturaTemp = (Escultura) obras;
             System.out.println("Material: " + esculturaTemp.getMaterial());
@@ -98,10 +98,10 @@ public class Acciones {
                 nuevaTemp[i] = Almacen.getObras()[i];
             } // se guardan las obras en un array temporal con un espacio más
 
-            Almacen.setObras(nuevaTemp); // se meten las obras que ya estaban 
+            Almacen.setObras(nuevaTemp); // se meten las obras que ya estaban
             Almacen.añadirobra(creada1); // se mete la obra nueva
 
-        } // if quiere introducir una pintura 
+        } // if quiere introducir una pintura
         else if (tipo.equals("Escultura")) {
             System.out.print("Introduzca el Material de la Escultura: ");
             String material = read.nextLine();
@@ -112,7 +112,7 @@ public class Acciones {
                 nuevaTemp[i] = Almacen.getObras()[i];
             } // se guardan las obras en un array temporal con un espacio más
 
-            Almacen.setObras(nuevaTemp); // se meten las obras que ya estaban 
+            Almacen.setObras(nuevaTemp); // se meten las obras que ya estaban
             Almacen.añadirobra(creada1); // se mete la obra nueva
 
         } // if quiere introducir una escultura
@@ -178,7 +178,7 @@ public class Acciones {
                             Pintura pinturaTemp = (Pintura) Almacen.getObras()[i];
                             pinturaTemp.setTecnica(nuevaTecnica);
                             Almacen.getObras()[i] = pinturaTemp;
-                        } // if es una pintura se puede cambiar la técnica 
+                        } // if es una pintura se puede cambiar la técnica
                         else {
                             System.out.println("Esta obra no es una pintura, seleccione una opción correcta.");
                             continue;
@@ -216,14 +216,62 @@ public class Acciones {
         } // while para que te printee solo una obra con un ID existente
     }
 
-    public static void obtenerPrecioVenta(){
+    public static void obtenerPrecioVenta() {
+        int precioMasDeUnKg = 20;
+        int precioMasDeDosMetros = 20;
+        int precioMasDeDosPiezas = 0;
+
         boolean idNoExiste = true;
         while (idNoExiste) {
-            System.out.print("Introduzca el ID de la obra que quiere visualizar:");
+            System.out.print("Introduzca el ID de la obra de la que quiere obtener el precio de venta:");
             int idObtenerPrecio = read.nextInt();
             for (int i = 0; i < Almacen.getObras().length; i++) {
                 if (Almacen.getObras()[i].getId() == idObtenerPrecio) {
-                    
+
+                    double comisionGaleria = Almacen.getObras()[i].getPrecio() * 0.25;
+
+                    if (Almacen.getObras()[i].getPeso() > 1) {
+                        precioMasDeUnKg = 100;
+                    }
+
+                    if (Almacen.getObras()[i].getAltura() > 2) {
+                        precioMasDeDosMetros = 100;
+                    }
+
+                    if (Almacen.getObras()[i].getNumeroPiezas() > 2) {
+                        precioMasDeDosPiezas = 10 * (Almacen.getObras()[i].getNumeroPiezas() - 2);
+                    }
+
+                    double precioVenta = Almacen.getObras()[i].getPrecio() + comisionGaleria + precioMasDeDosMetros
+                            + precioMasDeUnKg + precioMasDeDosPiezas;
+
+                    if (Almacen.getObras()[i] instanceof Pintura) {
+                        precioVenta = precioVenta - (precioVenta * 0.1);
+                    } else {
+                        precioVenta -= (precioVenta * 0.2);
+                        precioVenta += 50;
+                    }
+
+                    double precioFinal = precioVenta * 0.99;
+
+                    System.out.println("Nombre: " + Almacen.getObras()[i].getNombre());
+                    System.out.println("Altura(m): " + Almacen.getObras()[i].getAltura());
+                    System.out.println("Peso(t): " + Almacen.getObras()[i].getPeso());
+                    System.out.println("Numero de piezas: " + Almacen.getObras()[i].getNumeroPiezas());
+                    System.out.println("Precio(euros): " + Almacen.getObras()[i].getPrecio());
+                    System.out.println("Comisión galería: " + comisionGaleria);
+                    System.out.println("Importe por peso: " + precioMasDeUnKg);
+                    System.out.println("Importe por altura: " + precioMasDeDosMetros);
+                    if (precioMasDeDosPiezas != 0) {
+                        System.out.println("Importe adicional por piezas: " + precioMasDeDosPiezas);
+                    }
+                    if (Almacen.getObras()[i] instanceof Pintura) {
+                        System.out.println("Precio de venta(descuento del 20% por ser pintura): " + precioVenta);
+                    }
+                    else{
+                        System.out.println("Precio de venta(descuento del 20% por ser escultura): " + precioVenta);
+                    }
+                    System.out.println("Precio final(en dólares): " + precioFinal);
                     idNoExiste = false;
                 } // if el id existe se printea la obra y se finaliza el bucle
             } // for que recorre todas las obras
@@ -231,7 +279,6 @@ public class Acciones {
                 System.out.println("El ID que ha introducido no está registrado, introduzca otro.");
             } // if no existe el id se repite el bucle
         } // while para que te printee solo una obra con un ID existente
-
 
     }
 

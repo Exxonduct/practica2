@@ -43,7 +43,7 @@ public class Main {
                     Acciones.visualizarDatos();
                     continue;
                 case OBTENERPRECIOVENTA:
-                
+                    Acciones.obtenerPrecioVenta();
                     continue;
                 case IMPRIMIRETIQUETA:
 
