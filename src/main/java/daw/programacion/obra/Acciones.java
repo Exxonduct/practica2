@@ -269,7 +269,7 @@ public class Acciones {
                         System.out.println("Precio de venta(descuento del 20% por ser pintura): " + precioVenta);
                     }
                     else{
-                        System.out.println("Precio de venta(descuento del 20% por ser escultura): " + precioVenta);
+                        System.out.println("Precio de venta(descuento del 20% por ser escultura + 50euros de manipulación): " + precioVenta);
                     }
                     System.out.println("Precio final(en dólares): " + precioFinal);
                     idNoExiste = false;
