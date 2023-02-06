@@ -1,5 +1,6 @@
 package daw.programacion.obra;
 
+import java.security.Identity;
 import java.util.Scanner;
 
 public class Acciones {
@@ -280,6 +281,28 @@ public class Acciones {
             } // if no existe el id se repite el bucle
         } // while para que te printee solo una obra con un ID existente
 
+    }
+
+    public static void imprimirEtiqueta(){
+        boolean idNoExiste = true;
+        while(idNoExiste){
+            System.out.print("Introduzca el ID de la obra que quiere tener la etiqueta: ");
+            int idEtiqueta = read.nextInt();
+            for(int i = 0;i<Almacen.getObras().length;i++){
+                if(Almacen.getObras()[i].getId() == idEtiqueta){
+                    System.out.println("");
+                    System.out.println("Nombre: " + Almacen.getObras()[i].getNombre());
+                    System.out.println("Autor: " + Almacen.getObras()[i].getAutor());
+                    System.out.println("Descripción: " + Almacen.getObras()[i].getDescripcion());
+                    idNoExiste = false;
+                }
+            }
+            if(idNoExiste){
+                System.out.println("El id que ha introducido no existe, por favor introudzca uno nuevo.");
+                continue;
+            }
+
+        }
     }
 
 }

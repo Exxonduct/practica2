@@ -46,7 +46,7 @@ public class Main {
                     Acciones.obtenerPrecioVenta();
                     continue;
                 case IMPRIMIRETIQUETA:
-
+                    Acciones.imprimirEtiqueta();
                     continue;
                 case SALIR:
                     System.out.println("Fin del programa.");
