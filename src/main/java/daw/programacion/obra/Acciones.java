@@ -115,74 +115,74 @@ public class Acciones {
         int idCambiar = read.nextInt();
         read.nextLine();
         for (int i = 0; i < Almacen.getObras().length; i++) {
-            if(Almacen.getObras()[i].getId() == idCambiar){
+            if (Almacen.getObras()[i].getId() == idCambiar) {
                 System.out.print("Introduzca lo que quiere cambiar: ");
                 String queCambiar = read.nextLine();
-                switch(queCambiar){
+                switch (queCambiar) {
                     case "id":
                         System.out.print("Introduzca el nuevo ID: ");
                         int nuevoId = read.nextInt();
                         Almacen.getObras()[i].setId(nuevoId);
-                    break;
+                        break;
                     case "nombre":
                         System.out.print("Introduzca el nuevo nombre: ");
                         String nuevoNombre = read.nextLine();
-                        Almacen.getObras()[i].setNombre(nuevoNombre); 
-                    break;
+                        Almacen.getObras()[i].setNombre(nuevoNombre);
+                        break;
                     case "autor":
                         System.out.print("Introduzca el nuevo autor: ");
                         String nuevoAutor = read.nextLine();
                         Almacen.getObras()[i].setAutor(nuevoAutor);
-                    break;
+                        break;
                     case "precio":
                         System.out.print("Introduzca el nuevo precio: ");
                         double nuevoPrecio = read.nextDouble();
                         Almacen.getObras()[i].setPrecio(nuevoPrecio);
-                    break;
+                        break;
                     case "altura":
                         System.out.print("Introduzca la nueva altura: ");
                         double nuevaAltura = read.nextDouble();
                         Almacen.getObras()[i].setAltura(nuevaAltura);
-                    break;
+                        break;
                     case "peso":
                         System.out.print("Introduzca el nuevo peso: ");
                         double nuevoPeso = read.nextDouble();
                         Almacen.getObras()[i].setPeso(nuevoPeso);
-                    break;
+                        break;
                     case "material":
-                        if(Almacen.getObras()[i] instanceof Escultura){
+                        if (Almacen.getObras()[i] instanceof Escultura) {
                             System.out.print("Introduzca el nuevo material: ");
                             String nuevoMaterial = read.nextLine();
-                            Escultura esculturaTemp = (Escultura)Almacen.getObras()[i];
+                            Escultura esculturaTemp = (Escultura) Almacen.getObras()[i];
                             esculturaTemp.setMaterial(nuevoMaterial);
                             Almacen.getObras()[i] = esculturaTemp;
-                        } else{
+                        } else {
                             System.out.println("Esta obra no es una escultura, seleccione una opción correcta.");
                             continue;
                         }
-                    break;
+                        break;
                     case "tecnica":
-                        if(Almacen.getObras()[i] instanceof Pintura){
+                        if (Almacen.getObras()[i] instanceof Pintura) {
                             System.out.print("Introduzca la nueva Técnica: ");
                             String nuevaTecnica = read.nextLine();
-                            Pintura pinturaTemp = (Pintura)Almacen.getObras()[i];
+                            Pintura pinturaTemp = (Pintura) Almacen.getObras()[i];
                             pinturaTemp.setTecnica(nuevaTecnica);
                             Almacen.getObras()[i] = pinturaTemp;
-                        } else{
+                        } else {
                             System.out.println("Esta obra no es una pintura, seleccione una opción correcta.");
                             continue;
                         }
-                    break;
+                        break;
                     case "numero de piezas":
                         System.out.print("Introduzca el nuevo numero de piezas: ");
                         int nuevoNumeroDePiezas = read.nextInt();
                         Almacen.getObras()[i].setNumeroPiezas(nuevoNumeroDePiezas);
-                    break;
+                        break;
                     case "descripcion":
                         System.out.print("Introduzca la nueva descripción: ");
                         String nuevaDescripcion = read.nextLine();
                         Almacen.getObras()[i].setDescripcion(nuevaDescripcion);
-                    break;
+                        break;
                 }
             }
         }
