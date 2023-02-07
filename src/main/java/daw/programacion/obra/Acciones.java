@@ -269,7 +269,7 @@ public class Acciones {
                         System.out.println("Importe adicional por piezas: " + precioMasDeDosPiezas);
                     } // if tiene mas de dos piezas
                     if (Almacen.getObras()[i] instanceof Pintura) {
-                        System.out.println("Precio de venta(descuento del 20% por ser pintura): " + precioVenta);
+                        System.out.println("Precio de venta(descuento del 10% por ser pintura): " + precioVenta);
                     }  // if es pintura
                     else {
                         System.out.println(

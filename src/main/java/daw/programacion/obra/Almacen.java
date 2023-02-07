@@ -5,7 +5,7 @@ public class Almacen {
     private static Pintura guernica = new Pintura(001, "Guernica", "P.Picasso", 1000, 5, 2, 5, "cuadro guerra civil",
             "Óleo");
     private static Pintura laVie = new Pintura(002, "La vie", "P.Picasso", 200, 1, 1, 1, "óleo", "Óleo");
-    private static Pintura elSueño = new Pintura(003, "El Sueño", "P.Picasso", 300, 1.3, 1, 5, "óleo", "Óleo");
+    private static Pintura elSueño = new Pintura(003, "El Sueño", "P.Picasso", 300, 1.3, 1, 1, "óleo", "Óleo");
     private static Pintura retratoDeDoraMaar = new Pintura(004, "Retrato de Dora Maar", "P.Picasso", 400, 1, 0.8, 1,
             "óleo",
             "Óleo");
