@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int x = 0;
+        int eleccion = 0;
         Scanner read = new Scanner(System.in);
 
         final int VEROBRAS = 1;
@@ -17,19 +17,19 @@ public class Main {
         final int IMPRIMIRETIQUETA = 6;
         final int SALIR = 7;
 
-        while (x != SALIR) {
+        while (eleccion != SALIR) {
             Acciones.printOpciones();
             try{
-                x = read.nextInt();
+                eleccion = read.nextInt();
                 read.nextLine();
             }  // lee la elección
             catch(InputMismatchException ime){
-                System.out.println("error");
+                System.out.println("Error, intruduzca un parámetro válido.");
                 read.next();
                 continue;
-            } // da error si x no es un número
+            } // da error si eleccion no es un número
 
-            switch (x) {
+            switch (eleccion) {
                 case VEROBRAS:
                     Acciones.printObras();
                 continue;
