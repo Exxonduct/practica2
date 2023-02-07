@@ -1,22 +1,23 @@
 package daw.programacion.obra;
 
-import java.security.Identity;
 import java.util.Scanner;
 
 public class Acciones {
     static Scanner read = new Scanner(System.in);
 
     public static void printOpciones() {
+        String[] opciones = { "1. Visualizar las obras de arte existentes en la galería.",
+                "2. Dar de alta una nueva obra de arte.",
+                "3. Modificar los datos de una de las obras de arte expuestas.",
+                "4. Visualizar los datos de una de las obras de arte expuestas.",
+                "5. Obtener el precio de venta de una de las obras de arte expuestas.",
+                "6. Imprimir una etiqueta para clasificar una de las obras expuestas y dar información adicional a los visitantes de la galería.",
+                "7. Salir" };
+
         System.out.println("");
-        System.out.println(
-                "1. Visualizar las obras de arte existentes en la galería.");
-        System.out.println("2. Dar de alta una nueva obra de arte.");
-        System.out.println("3. Modificar los datos de una de las obras de arte expuestas.");
-        System.out.println("4. Visualizar los datos de una de las obras de arte expuestas.");
-        System.out.println("5. Obtener el precio de venta de una de las obras de arte expuestas.");
-        System.out.println(
-                "6. Imprimir una etiqueta para clasificar una de las obras expuestas y dar información adicional a los visitantes de la galería.");
-        System.out.println("7. Salir");
+        for (int i = 0; i < opciones.length; i++) {
+            System.out.println(opciones[i]);
+        }
         System.out.println("");
         System.out.print("Indique lo que quiere realizar: ");
 
@@ -268,9 +269,10 @@ public class Acciones {
                     }
                     if (Almacen.getObras()[i] instanceof Pintura) {
                         System.out.println("Precio de venta(descuento del 20% por ser pintura): " + precioVenta);
-                    }
-                    else{
-                        System.out.println("Precio de venta(descuento del 20% por ser escultura + 50euros de manipulación): " + precioVenta);
+                    } else {
+                        System.out.println(
+                                "Precio de venta(descuento del 20% por ser escultura + 50euros de manipulación): "
+                                        + precioVenta);
                     }
                     System.out.println("Precio final(en dólares): " + precioFinal);
                     idNoExiste = false;
@@ -283,13 +285,13 @@ public class Acciones {
 
     }
 
-    public static void imprimirEtiqueta(){
+    public static void imprimirEtiqueta() {
         boolean idNoExiste = true;
-        while(idNoExiste){
+        while (idNoExiste) {
             System.out.print("Introduzca el ID de la obra que quiere tener la etiqueta: ");
             int idEtiqueta = read.nextInt();
-            for(int i = 0;i<Almacen.getObras().length;i++){
-                if(Almacen.getObras()[i].getId() == idEtiqueta){
+            for (int i = 0; i < Almacen.getObras().length; i++) {
+                if (Almacen.getObras()[i].getId() == idEtiqueta) {
                     System.out.println("");
                     System.out.println("Nombre: " + Almacen.getObras()[i].getNombre());
                     System.out.println("Autor: " + Almacen.getObras()[i].getAutor());
@@ -297,7 +299,7 @@ public class Acciones {
                     idNoExiste = false;
                 }
             }
-            if(idNoExiste){
+            if (idNoExiste) {
                 System.out.println("El id que ha introducido no existe, por favor introudzca uno nuevo.");
                 continue;
             }
