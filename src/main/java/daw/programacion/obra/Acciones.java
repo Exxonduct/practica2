@@ -17,7 +17,7 @@ public class Acciones {
         System.out.println("");
         for (int i = 0; i < opciones.length; i++) {
             System.out.println(opciones[i]);
-        }
+        } // printea todas las opciones
         System.out.println("");
         System.out.print("Indique lo que quiere realizar: ");
 
@@ -127,7 +127,7 @@ public class Acciones {
         read.nextLine();
         for (int i = 0; i < Almacen.getObras().length; i++) {
             if (Almacen.getObras()[i].getId() == idCambiar) {
-                System.out.print("Introduzca lo que quiere cambiar: ");
+                System.out.print("Introduzca lo que quiere cambiar(en minusculas): ");
                 String queCambiar = read.nextLine();
                 switch (queCambiar) {
                     case "id":
@@ -234,27 +234,28 @@ public class Acciones {
 
                     if (Almacen.getObras()[i].getPeso() > 1) {
                         precioMasDeUnKg = 100;
-                    }
+                    } // if pesa mas de 1 kg se cobra 100€ en vez de 20
 
                     if (Almacen.getObras()[i].getAltura() > 2) {
                         precioMasDeDosMetros = 100;
-                    }
+                    } // si mide mas de dos metros se cobra 100 euros en vez de 20
 
                     if (Almacen.getObras()[i].getNumeroPiezas() > 2) {
                         precioMasDeDosPiezas = 10 * (Almacen.getObras()[i].getNumeroPiezas() - 2);
-                    }
+                    } // si tiene mas de dos piezas se cobra 10 euros por pieza
 
                     double precioVenta = Almacen.getObras()[i].getPrecio() + comisionGaleria + precioMasDeDosMetros
-                            + precioMasDeUnKg + precioMasDeDosPiezas;
+                            + precioMasDeUnKg + precioMasDeDosPiezas; // precio original mas todos los extra
 
                     if (Almacen.getObras()[i] instanceof Pintura) {
-                        precioVenta = precioVenta - (precioVenta * 0.1);
-                    } else {
+                        precioVenta -= (precioVenta * 0.1);
+                    } // if es pintura tiene un 10% de descuento 
+                    else {
                         precioVenta -= (precioVenta * 0.2);
                         precioVenta += 50;
-                    }
+                    } // if es escultura tiene un descuento del 20% y 50 euros de manipulacion
 
-                    double precioFinal = precioVenta * 0.99;
+                    double precioFinal = precioVenta * 0.99; // transformacion a dolares
 
                     System.out.println("Nombre: " + Almacen.getObras()[i].getNombre());
                     System.out.println("Altura(m): " + Almacen.getObras()[i].getAltura());
@@ -266,14 +267,15 @@ public class Acciones {
                     System.out.println("Importe por altura: " + precioMasDeDosMetros);
                     if (precioMasDeDosPiezas != 0) {
                         System.out.println("Importe adicional por piezas: " + precioMasDeDosPiezas);
-                    }
+                    } // if tiene mas de dos piezas
                     if (Almacen.getObras()[i] instanceof Pintura) {
                         System.out.println("Precio de venta(descuento del 20% por ser pintura): " + precioVenta);
-                    } else {
+                    }  // if es pintura
+                    else {
                         System.out.println(
                                 "Precio de venta(descuento del 20% por ser escultura + 50euros de manipulación): "
                                         + precioVenta);
-                    }
+                    } // if es escultura
                     System.out.println("Precio final(en dólares): " + precioFinal);
                     idNoExiste = false;
                 } // if el id existe se printea la obra y se finaliza el bucle
