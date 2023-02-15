@@ -47,7 +47,6 @@ public class Acciones {
 
     public static void printObras() {
         System.out.println("");
-        System.out.println("Esculturas: ");
         for (int i = 0; i < Almacen.getObras().length; i++) {
 
             printUnaObra(Almacen.getObras()[i]);
@@ -121,7 +120,6 @@ public class Acciones {
     }
 
     public static void modificarObra() {
-        printObras();
         System.out.print("Introduzca el ID de la obra que quiere modificar: ");
         int idCambiar = read.nextInt();
         read.nextLine();
@@ -276,15 +274,14 @@ public class Acciones {
                                 "Precio de venta(descuento del 20% por ser escultura + 50euros de manipulación): "
                                         + precioVenta);
                     } // if es escultura
-                    System.out.println("Precio final(en dólares): " + precioFinal);
+                    System.out.println("Precio final(en dólares): " + precioFinal + "$");
                     idNoExiste = false;
                 } // if el id existe se printea la obra y se finaliza el bucle
             } // for que recorre todas las obras
             if (idNoExiste) {
                 System.out.println("El ID que ha introducido no está registrado, introduzca otro.");
             } // if no existe el id se repite el bucle
-        } // while para que te printee solo una obra con un ID existente
-
+        } // while para que te printee solo una obra con un ID existente 
     }
 
     public static void imprimirEtiqueta() {

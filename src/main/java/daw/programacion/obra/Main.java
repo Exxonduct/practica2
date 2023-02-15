@@ -24,7 +24,7 @@ public class Main {
                 read.nextLine();
             }  // lee la elección
             catch(InputMismatchException ime){
-                System.out.println("Error, intruduzca un parámetro válido.");
+                System.out.println("Error, introduzca un parámetro válido.");
                 read.next();
                 continue;
             } // da error si eleccion no es un número
