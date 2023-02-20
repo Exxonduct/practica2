@@ -24,24 +24,14 @@ public class Acciones {
     } // metodo para printear las opciones disponibles
 
     public static void printUnaObra(ObraDeArte obras) {
-        System.out.println("");
-        System.out.println("ID: " + obras.getId());
-        System.out.println("Nombre: " + obras.getNombre());
-        System.out.println("Autor: " + obras.getAutor());
-        System.out.println("Precio: " + obras.getPrecio() + " euros");
-        System.out.println("Altura: " + obras.getAltura() + "m");
-        System.out.println("Peso: " + obras.getPeso() + "t");
         if (obras instanceof Pintura) {
             Pintura pinturaTemp = (Pintura) obras;
-            System.out.println("Técnica: " + pinturaTemp.getTecnica());
+            System.out.println(pinturaTemp.toString());
         } // if la obra es una pintura
         else if (obras instanceof Escultura) {
             Escultura esculturaTemp = (Escultura) obras;
-            System.out.println("Material: " + esculturaTemp.getMaterial());
+            System.out.println(esculturaTemp.toString());
         } // if la obra es una escultura
-        System.out.println("Piezas: " + obras.getNumeroPiezas());
-        System.out.println("Descripción: " + obras.getDescripcion());
-        System.out.println("");
 
     } // metodo para printear una obra en concreto
 
@@ -54,70 +44,20 @@ public class Acciones {
         } // for que recorre todas las obras
     } // metodo con un for que printea todas las obras de arte
 
-    public static void crearObra() {
-        int id;
-        while (true) {
-            System.out.print("Introduzca el ID de la nueva obra: ");
-            id = read.nextInt();
-            boolean repetido = false;
-            for (int i = 0; i < Almacen.getObras().length; i++) {
-                if (Almacen.getObras()[i].getId() == id) {
-                    repetido = true;
-                } // if hay un id que ya existe repetido = true
-            }
-            if (repetido) {
-                System.out.println("Ya existe una obra con ese ID, por favor, introduzca uno nuevo.");
-                continue;
-            } // si está repetido te vuelve a pedir el id
-            break;
-        } // while para introducir un ID único y nuevo
-        System.out.print("Introduzca el tipo de obra que quiere crear(Pintura/Escultura): ");
-        read.nextLine();
-        String tipo = read.nextLine();
-        System.out.print("Introduzca el Nombre de la obra: ");
-        String nombre = read.nextLine();
-        System.out.print("Introduzca el nombre del Autor: ");
-        String autor = read.nextLine();
-        System.out.print("Introduzca el precio: ");
-        double precio = read.nextDouble();
-        System.out.print("Introduzca la altura: ");
-        double altura = read.nextDouble();
-        System.out.print("Introduzca el peso: ");
-        double peso = read.nextDouble();
-        System.out.print("Introduzca el número de piezas: ");
-        int piezas = read.nextInt();
-        read.nextLine();
-        System.out.print("Introduzca la descripción: ");
-        String desc = read.nextLine();
-        if (tipo.equals("Pintura")) {
-            System.out.print("Introduzca la Técnica de la Pintura: ");
-            String tecnica = read.nextLine();
-            Pintura creada1 = new Pintura(id, nombre, autor, precio, altura, peso, piezas, desc, tecnica);
-            ObraDeArte[] nuevaTemp = new ObraDeArte[Almacen.getObras().length + 1];
+    public static void crearObra(int id, String tipo, String nombre, String autor, double precio, double altura,
+            double peso, int piezas, String desc, String tecnica_o_material) {
+        Pintura creada1 = new Pintura(id, nombre, autor, precio, altura, peso, piezas, desc, tecnica_o_material);
+        ObraDeArte[] nuevaTemp = new ObraDeArte[Almacen.getObras().length + 1];
 
-            for (int i = 0; i < Almacen.getObras().length; i++) {
-                nuevaTemp[i] = Almacen.getObras()[i];
-            } // se guardan las obras en un array temporal con un espacio más
+        for (int i = 0; i < Almacen.getObras().length; i++) {
+            nuevaTemp[i] = Almacen.getObras()[i];
+        } // se guardan las obras en un array temporal con un espacio más
 
-            Almacen.setObras(nuevaTemp); // se meten las obras que ya estaban
-            Almacen.añadirobra(creada1); // se mete la obra nueva
-
-        } // if quiere introducir una pintura
-        else if (tipo.equals("Escultura")) {
-            System.out.print("Introduzca el Material de la Escultura: ");
-            String material = read.nextLine();
-            Escultura creada1 = new Escultura(id, nombre, autor, precio, altura, peso, piezas, desc, material);
-            ObraDeArte[] nuevaTemp = new ObraDeArte[Almacen.getObras().length + 1];
-
-            for (int i = 0; i < Almacen.getObras().length; i++) {
-                nuevaTemp[i] = Almacen.getObras()[i];
-            } // se guardan las obras en un array temporal con un espacio más
-
-            Almacen.setObras(nuevaTemp); // se meten las obras que ya estaban
-            Almacen.añadirobra(creada1); // se mete la obra nueva
-
-        } // if quiere introducir una escultura
+        Almacen.setObras(nuevaTemp); // se meten las obras que ya estaban
+        Almacen.añadirobra(creada1); // se mete la obra nueva
     }
+
+
 
     public static void modificarObra() {
         System.out.print("Introduzca el ID de la obra que quiere modificar: ");
@@ -247,7 +187,7 @@ public class Acciones {
 
                     if (Almacen.getObras()[i] instanceof Pintura) {
                         precioVenta -= (precioVenta * 0.1);
-                    } // if es pintura tiene un 10% de descuento 
+                    } // if es pintura tiene un 10% de descuento
                     else {
                         precioVenta -= (precioVenta * 0.2);
                         precioVenta += 50;
@@ -268,7 +208,7 @@ public class Acciones {
                     } // if tiene mas de dos piezas
                     if (Almacen.getObras()[i] instanceof Pintura) {
                         System.out.println("Precio de venta(descuento del 10% por ser pintura): " + precioVenta);
-                    }  // if es pintura
+                    } // if es pintura
                     else {
                         System.out.println(
                                 "Precio de venta(descuento del 20% por ser escultura + 50euros de manipulación): "
@@ -281,7 +221,7 @@ public class Acciones {
             if (idNoExiste) {
                 System.out.println("El ID que ha introducido no está registrado, introduzca otro.");
             } // if no existe el id se repite el bucle
-        } // while para que te printee solo una obra con un ID existente 
+        } // while para que te printee solo una obra con un ID existente
     }
 
     public static void imprimirEtiqueta() {

@@ -17,6 +17,12 @@ public class Escultura extends ObraDeArte {
         this.material = material;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " Material=" + material;
+    }
+
+    
     
 
 }

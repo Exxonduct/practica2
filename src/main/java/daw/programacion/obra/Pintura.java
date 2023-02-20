@@ -17,6 +17,12 @@ public class Pintura extends ObraDeArte {
         this.tecnica = tecnica;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " Tecnica=" + tecnica;
+    }
+
+    
     
 
 }

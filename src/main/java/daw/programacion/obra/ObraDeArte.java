@@ -89,8 +89,8 @@ public class ObraDeArte {
     }
 
     public String toString() {
-        return "ObraDeArte [id=" + id + ", nombre=" + nombre + ", autor=" + autor + ", precio=" + precio + ", altura="
-                + altura + ", peso=" + peso + ", numeroPiezas=" + numeroPiezas + ", descripcion=" + descripcion + "]";
+        return "ID=" + id + ", Nombre=" + nombre + ", Autor=" + autor + ", Precio=" + precio + ", Altura="
+                + altura + ", Peso=" + peso + ", NumeroPiezas=" + numeroPiezas + ", Descripcion=" + descripcion + ",";
     }
 
     
