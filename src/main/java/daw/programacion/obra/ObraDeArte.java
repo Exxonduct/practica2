@@ -88,4 +88,11 @@ public class ObraDeArte {
         return descripcion;
     }
 
+    public String toString() {
+        return "ID=" + id + ", Nombre=" + nombre + ", Autor=" + autor + ", Precio=" + precio + ", Altura="
+                + altura + ", Peso=" + peso + ", NumeroPiezas=" + numeroPiezas + ", Descripcion=" + descripcion + ",";
+    }
+
+    
+
 }
